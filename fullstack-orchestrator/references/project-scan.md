@@ -47,13 +47,12 @@ Report sections in this order:
 
 1. recommended orchestration repo
 2. recommended worktree policy
-3. task-board command policy
-4. repo map
-5. glossary candidates and term conflicts
-6. vertical slice candidates, with behavior contracts and named gates for each
+3. repo map
+4. glossary candidates and term conflicts
+5. vertical slice candidates, with behavior contracts and named gates for each
    accepted user-visible, bug-fix, or cross-context behavior
-7. runbook proposals from detected stack patterns, with QA/debug/deploy gates
-8. companion skill categories (names resolve live; see
+6. runbook proposals from detected stack patterns, with QA/debug/deploy gates
+7. companion skill categories (names resolve live; see
    [companion-skills.md](companion-skills.md))
 
 ## Approval Rules
@@ -67,8 +66,6 @@ When writing docs after approval:
 - create or confirm a dedicated `<project-slug>-orchestration` repo first
 - keep implementation repos as surfaces only
 - approve task worktree root, branch naming, and landing policy
-- approve whether `tasks`/`tsk` should use thread tools, local git/worktrees, or
-  both when producing its task board
 - write only approved facts
 - keep slices `Proposed` until their behavior contracts are approved
 - keep `AGENTS.md` as a router

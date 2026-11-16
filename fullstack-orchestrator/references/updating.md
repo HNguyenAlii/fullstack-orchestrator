@@ -20,7 +20,7 @@ self-initiated edit. It is the sanctioned form of the Skill Improvement Loop's
   something unambiguous like "update the orchestrator skill".
 - This is a scoped directive, not a match on the common verb "update". Requests
   that merely contain the word — "update the API docs", "update dependencies",
-  "update the task board" — are ordinary project edits and MUST NOT enter this
+  "update the glossary" — are ordinary project edits and MUST NOT enter this
   pipeline. When intent is ambiguous, ask before starting, because Phase 1 mutates
   installed skill files.
 - Recommend (do not run) an update when the installed skill is known to lag its

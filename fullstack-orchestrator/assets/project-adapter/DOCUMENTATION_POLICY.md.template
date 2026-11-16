@@ -1,23 +1,20 @@
 # {project_name} Documentation Policy
 
-## Canonical Ownership
+## Placement Rules
 
-- Repo topology lives in `ORCHESTRATION.md`.
-- Task-board command policy lives in `TASKS.md`.
-- Domain language lives in `GLOSSARY.md`.
-- Slice mapping, behavior contracts, and gates live in `SLICES.md`.
+`AGENTS.md` routes each topic to the doc that owns it. These rules cover
+content the router does not:
+
 - Runbooks live in their pattern-named docs, one canonical runbook per
   pattern, each routed from `AGENTS.md`.
 - Task progress lives in sessions. Shared durable gates belong in their existing
   ticket, slice, or release record.
-- Evidence-backed skill-improvement candidates live in `SKILL_FEEDBACK.md`.
 - Implementation specs, schemas, migrations, and code-level details live in the
   relevant implementation repo.
 
 ## Boundaries
 
 - Do not duplicate canonical glossary terms in repo-local context files.
-- Do not turn `TASKS.md` into an issue tracker or status log.
 - Do not store credentials in orchestration docs.
 
 ## Size Budgets
@@ -30,7 +27,6 @@ warns when a doc exceeds its budget; edit this table to tune budgets.
 | AGENTS.md | 60 |
 | DOCUMENTATION_POLICY.md | 60 |
 | ORCHESTRATION.md | 80 |
-| TASKS.md | 80 |
 | WORKTREES.md | 80 |
 | QA.md | 120 |
 | DEBUG.md | 120 |
