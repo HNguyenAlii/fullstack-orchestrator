@@ -48,7 +48,7 @@ SLICE_HEADING = re.compile(
     r"^ {0,3}##[ \t]+(?!#)(?P<title>\S.*?)[ \t]*$", re.MULTILINE
 )
 CONTRACT_HEADING = re.compile(
-    r"^ {0,3}###[ \t]+(?P<id>BC-[A-Z0-9]+(?:-[A-Z0-9]+)*)[ \t]+(?:—|-)[ \t]+(?P<title>\S.*?)[ \t]*$",
+    r"^ {0,3}###[ \t]+(?P<id>[A-Z][A-Z0-9]*-[A-Z0-9]+(?:-[A-Z0-9]+)*)[ \t]+(?:—|-)[ \t]+(?P<title>\S.*?)[ \t]*$",
     re.MULTILINE,
 )
 H3_HEADING = re.compile(r"^ {0,3}###[ \t]+(?!#)\S.*?[ \t]*$", re.MULTILINE)
@@ -62,7 +62,7 @@ PLACEHOLDER_VALUE = re.compile(
     r"Example|\?|\-|\.\.\.)$",
     re.IGNORECASE,
 )
-PLACEHOLDER_CONTRACT_IDS = {"BC-000", "BC-EXAMPLE", "BC-TBD", "BC-TODO", "BC-XXX"}
+PLACEHOLDER_CONTRACT_SUFFIXES = {"000", "EXAMPLE", "TBD", "TODO", "XXX"}
 LANDING_REFS = re.compile(
     r"^[A-Za-z0-9_.-]+@[0-9A-Fa-f]{7,64}"
     r"(?:,[ \t]*[A-Za-z0-9_.-]+@[0-9A-Fa-f]{7,64})*$"
@@ -220,7 +220,7 @@ def validate_behavior_contracts(
         h3_starts = [heading.start() for heading in H3_HEADING.finditer(section)]
         for heading in contract_headings:
             contract_id = heading.group("id")
-            if contract_id in PLACEHOLDER_CONTRACT_IDS:
+            if contract_id.rsplit("-", 1)[-1] in PLACEHOLDER_CONTRACT_SUFFIXES:
                 errors.append(
                     f"SLICES.md behavior contract ID is a placeholder: {contract_id}"
                 )

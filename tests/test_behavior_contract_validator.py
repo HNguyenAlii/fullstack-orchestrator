@@ -224,6 +224,26 @@ Keep canonical documents concise.
             errors,
         )
 
+    def test_project_prefixed_contract_ids_are_recognised(self) -> None:
+        errors, _warnings = self._validate(
+            self._behavior_contracts(2, ids=["ALII-001", "ALII-001"])
+        )
+
+        self.assertTrue(
+            any("duplicate" in error.lower() and "ALII-001" in error for error in errors),
+            errors,
+        )
+
+    def test_placeholder_contract_ids_fail_for_any_prefix(self) -> None:
+        errors, _warnings = self._validate(
+            self._behavior_contracts(1, ids=["ALII-TODO"])
+        )
+
+        self.assertTrue(
+            any("placeholder" in error.lower() and "ALII-TODO" in error for error in errors),
+            errors,
+        )
+
     def test_duplicate_behavior_contract_ids_fail(self) -> None:
         errors, _warnings = self._validate(
             self._behavior_contracts(2, ids=["BC-001", "BC-001"])

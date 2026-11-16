@@ -69,7 +69,7 @@ Default landing policy is all-or-hold for cross-repo changes:
 5. Read back the landed commits, then close the slice ledger in the
    orchestration repo: set `Status: Landed`, record every affected repo under
    `Landed at` as `repo@commit`, and replace pending values with durable
-   `Evidence` for every `BC-*` gate. Do not mark partially landed work as
+   `Evidence` for every behavior contract gate. Do not mark partially landed work as
    `Landed`.
 6. Run `validate_project_adapter.py <orchestration-root> --strict --slice
    "<slice name>"` and land the ledger update only when it passes.

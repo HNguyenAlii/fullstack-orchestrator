@@ -101,8 +101,9 @@ slice should include:
 - relevant glossary terms
 - 1-3 behavior contracts for every approved user-visible feature, bug fix, or
   cross-context or external contract change
-- a stable, unique `BC-*` ID plus `Given / When / Then / Gate` for each
-  behavior contract
+- a stable, unique `<PREFIX>-*` ID, where `<PREFIX>` is the project
+  abbreviation (such as `ALII-001`), plus `Given / When / Then / Gate` for
+  each behavior contract
 - durable `Evidence` for every landed behavior contract
 - data/privacy/security boundary when relevant
 - merge or landing order

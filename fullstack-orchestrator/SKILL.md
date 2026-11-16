@@ -80,7 +80,8 @@ cross-context or external contract change:
 
 1. Reuse the approved slice's contracts. If none covers the change, draft 1-3
    business-readable `Given / When / Then` scenarios in chat before coding,
-   each with a stable `BC-*` ID.
+   each with a stable `<PREFIX>-*` ID, where `<PREFIX>` is the project
+   abbreviation used in `SLICES.md` (for example `ALII-001`).
 2. Map each scenario to a named gate and the evidence that will prove it.
 3. Resolve contradictions between scenario, glossary, slice, plan, and live
    system before coding. Write only approved model changes to `GLOSSARY.md` or
@@ -116,7 +117,7 @@ Scripts collect evidence and validate; they are not authority:
   worktrees; base on the remote canonical branch when local is behind and
   surface divergence instead of starting from a stale base.
 - Cross-repo changes land all-or-hold. After landing, close the `SLICES.md`
-  ledger (`Status: Landed`, `Landed at`, `Evidence` per `BC-*`) and rerun
+  ledger (`Status: Landed`, `Landed at`, `Evidence` per contract ID) and rerun
   strict validation.
 - Do not deploy unless the user says `deploy`, `dpl`, or an adapter-defined
   equivalent.
