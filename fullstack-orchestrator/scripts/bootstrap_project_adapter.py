@@ -523,9 +523,17 @@ def runbook_rows(runbooks: dict[str, list[str]]) -> str:
     )
 
 
+def derive_contract_prefix(project_name: str) -> str:
+    prefix = re.sub(r"[^A-Z0-9]+", "", project_name.upper())
+    if not prefix or not prefix[0].isalpha():
+        return "PRJ"
+    return prefix[:8]
+
+
 def write_docs(
     coordinator: Path,
     project_name: str,
+    contract_prefix: str,
     findings: list[RepoFinding],
     force: bool,
     worktree_root: str,
@@ -536,6 +544,7 @@ def write_docs(
     written: list[Path] = []
     values = {
         "project_name": project_name,
+        "contract_prefix": contract_prefix,
         "repo_rows": repo_rows(findings),
         "worktree_root": worktree_root,
         "task_branch_convention": task_branch_convention,
@@ -592,6 +601,11 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("seeds", nargs="*", help="Explicit local repo roots, monorepo roots, or Git URLs")
     parser.add_argument("--project-name", default="", help="Project name for generated docs")
+    parser.add_argument(
+        "--contract-prefix",
+        default="",
+        help="Behavior contract ID prefix, such as ALII (default: derived from --project-name)",
+    )
     parser.add_argument("--coordinator", default="", help="Dedicated orchestration repo/directory for --write")
     parser.add_argument("--worktree-root", default="", help="Approved task worktree root for generated WORKTREES.md")
     parser.add_argument(
@@ -697,6 +711,7 @@ def main() -> int:
         written = write_docs(
             coordinator,
             project_name,
+            (args.contract_prefix or derive_contract_prefix(project_name)).upper(),
             findings,
             args.force,
             worktree_root,
