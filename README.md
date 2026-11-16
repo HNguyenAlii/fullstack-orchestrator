@@ -23,7 +23,6 @@ Say these to the agent; they are prompts, not shell commands.
 
 | Command | Result |
 | --- | --- |
-| `tasks` / `tsk` | Produce a verified, actionable task board. |
 | `groom` / `grm` | Audit orchestration docs and propose cleanup before editing. |
 | `update` / `upd` | As a standalone request, update the orchestrator skill, reconcile adapter scaffolding, then groom. |
 
@@ -34,20 +33,18 @@ a dedicated orchestration repo. Implementation repos stay as surfaces only:
 
 - `AGENTS.md`: short root navigator and trigger router
 - `ORCHESTRATION.md`: repo map, aliases, roles, ownership, branches
-- `TASKS.md`: `tasks`/`tsk` board policy and action boundaries
 - `WORKTREES.md`: task branches/worktrees, pickup points, landing, cleanup
 - `GLOSSARY.md`: canonical domain language
 - `SLICES.md`: vertical slices, stable behavior contracts, gates, and merge
   order
-- `DOCUMENTATION_POLICY.md`: doc ownership, size budgets, grooming policy
+- `DOCUMENTATION_POLICY.md`: placement rules, size budgets, grooming policy
 - `SKILL_FEEDBACK.md`: reviewed skill-improvement candidates (skills never
   self-mutate)
 - Pattern runbooks (`QA.md`, `DEBUG.md`, `DEPLOY.md`, `JOBS.md`, or new
   pattern names): proposed from scan evidence, written only for patterns the
   stack actually shows, each routed from `AGENTS.md`
 
-Task progress stays in sessions. `tasks` builds a board on demand from relevant
-sessions and checks their claims against live repository, CI, and deploy evidence.
+Task progress stays in sessions, not in adapter docs.
 
 ## Project Scan First
 

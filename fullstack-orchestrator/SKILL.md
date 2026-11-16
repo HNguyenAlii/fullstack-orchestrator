@@ -1,6 +1,6 @@
 ---
 name: fullstack-orchestrator
-description: Turn product behavior into domain-aligned vertical slices with BDD behavior contracts and acceptance gates, coordinate full-stack delivery across one repo, a monorepo, or many repos, and verify every gate with live evidence. Use when bootstrapping or scanning a project for orchestration; defining glossary, slices, or Given/When/Then contracts; planning or implementing features, bug fixes, or cross-context contract changes; coordinating frontend, backend, infra, or companion skills; worktrees, QA, debug, install, deploy, or landing; or the tasks/tsk, groom/grm, and update/upd commands.
+description: Turn product behavior into domain-aligned vertical slices with BDD behavior contracts and acceptance gates, coordinate full-stack delivery across one repo, a monorepo, or many repos, and verify every gate with live evidence. Use when bootstrapping or scanning a project for orchestration; defining glossary, slices, or Given/When/Then contracts; planning or implementing features, bug fixes, or cross-context contract changes; coordinating frontend, backend, infra, or companion skills; worktrees, QA, debug, install, deploy, or landing; or the groom/grm and update/upd commands.
 ---
 
 # Fullstack Orchestrator
@@ -17,7 +17,6 @@ These are user prompts, not shell commands.
 
 | Command | Result |
 | --- | --- |
-| `tasks` / `tsk` | Load `TASKS.md` and produce a verified, actionable-only board. |
 | `groom` / `grm` | Audit orchestration docs and report proposed cleanup before editing. Follow [grooming.md](references/grooming.md). |
 | `update` / `upd` | Only as a standalone or unambiguous request to update the orchestrator skill: review and sync installed copies, reconcile adapter scaffolding and policy, then groom. Follow [updating.md](references/updating.md). |
 
@@ -52,12 +51,11 @@ The adapter is a set of small markdown docs in a dedicated orchestration repo,
 only unless the user explicitly overrides that boundary.
 
 Core docs: `AGENTS.md` (navigator; its trigger table is the doc manifest),
-`ORCHESTRATION.md`, `WORKTREES.md`, `TASKS.md`, `GLOSSARY.md`, `SLICES.md`,
+`ORCHESTRATION.md`, `WORKTREES.md`, `GLOSSARY.md`, `SLICES.md`,
 `DOCUMENTATION_POLICY.md`, and optional `SKILL_FEEDBACK.md`. Runbooks
 (`QA.md`, `DEPLOY.md`, `JOBS.md`, ...) are emergent: one per stack pattern the
 scan actually shows, written only after approval, never stubbed. Task progress
-lives in sessions; boards are built on demand and checked against live
-evidence. Doc contracts live in
+lives in sessions. Doc contracts live in
 [project-adapter.md](references/project-adapter.md).
 
 ## Core Role
@@ -101,8 +99,7 @@ because it is small.
 
 Scan only user-provided local paths or URLs. Keep unreviewed findings in chat.
 Have the user create or confirm the orchestration repo, then approve findings
-section by section before writing: repo map, worktree policy, task-board
-policy, glossary, slices and contracts, runbook proposals.
+section by section before writing: repo map, worktree policy, glossary, slices and contracts, runbook proposals.
 
 Scripts collect evidence and validate; they are not authority:
 

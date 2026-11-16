@@ -57,9 +57,6 @@ For a vertical slice spanning multiple repos:
 - do not land any repo until all affected repos pass their gates
 - report partial blockers with exact repo, branch/worktree, command, and status
 
-Use `TASKS.md` when the user asks for a task board rather than immediate
-implementation or landing.
-
 ## Landing And Cleanup
 
 Default landing policy is all-or-hold for cross-repo changes:

@@ -43,7 +43,7 @@ class SkillContractTests(unittest.TestCase):
             self.assertIsNotNone(commands, "document must define a Commands section")
             body = commands.group("body")
 
-            for command in ("tasks", "tsk", "groom", "grm", "update", "upd"):
+            for command in ("groom", "grm", "update", "upd"):
                 self.assertIn(f"`{command}`", body)
             for project_command in ("install", "ins", "deploy", "dpl"):
                 self.assertNotIn(f"`{project_command}`", body)

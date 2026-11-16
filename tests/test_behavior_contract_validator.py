@@ -38,7 +38,6 @@ class BehaviorContractValidatorTests(unittest.TestCase):
 | Trigger | Read |
 | --- | --- |
 | repo map | `ORCHESTRATION.md` |
-| tasks | `TASKS.md` |
 | worktrees | `WORKTREES.md` |
 | terms | `GLOSSARY.md` |
 | behavior | `SLICES.md` |
@@ -56,21 +55,6 @@ class BehaviorContractValidatorTests(unittest.TestCase):
 | Alias | Role | Local path | Remote | Default branch |
 | --- | --- | --- | --- | --- |
 | app | application | /tmp/app | local | main |
-""",
-                "TASKS.md": """\
-# Tasks
-
-## Purpose
-
-Test policy.
-
-## Board Rules
-
-Only actionable work.
-
-## Status Labels
-
-Ready.
 """,
                 "WORKTREES.md": """\
 # Worktrees

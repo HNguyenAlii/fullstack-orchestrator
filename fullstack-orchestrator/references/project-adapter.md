@@ -9,7 +9,7 @@ Keep repo-specific implementation notes inside the implementation repos.
 Implementation repos are surfaces only by default.
 
 The adapter has two tiers. Core coordination docs exist in every project:
-`AGENTS.md`, `ORCHESTRATION.md`, `TASKS.md`, `WORKTREES.md`, `GLOSSARY.md`,
+`AGENTS.md`, `ORCHESTRATION.md`, `WORKTREES.md`, `GLOSSARY.md`,
 `SLICES.md`, `DOCUMENTATION_POLICY.md` (plus optional
 `SKILL_FEEDBACK.md`). Runbooks are emergent: one pattern-named doc per stack
 pattern the project actually has, created on approval — never a fixed set of
@@ -39,12 +39,11 @@ Recommended trigger rows:
 | Trigger | Read |
 | --- | --- |
 | repo map, aliases, ownership, multi-repo work | `ORCHESTRATION.md` |
-| tasks, tsk, task board, current work, blockers, continue/abort candidates | `TASKS.md` |
 | task branches, worktrees, landing, cleanup | `WORKTREES.md` |
 | domain language, user-facing copy, data boundaries | `GLOSSARY.md` |
 | feature implementation, behavior change, bug fix, cross-context or external contract | `GLOSSARY.md`, `SLICES.md` |
 | slice planning, behavior contracts, BDD, gates, dependencies, merge order | `SLICES.md` |
-| documentation placement or canonical ownership | `DOCUMENTATION_POLICY.md` |
+| documentation placement | `DOCUMENTATION_POLICY.md` |
 | groom, grm, doc bloat, size budgets | `DOCUMENTATION_POLICY.md` |
 | missing skills, stale skills, reusable workflow patterns, skill PRs | `SKILL_FEEDBACK.md` |
 | editing an implementation repo | that repo's local instructions |
@@ -74,25 +73,6 @@ Record approved mutation and landing policy:
 - runtime ownership rules
 - cross-repo all-or-hold policy
 - landing and cleanup rules
-
-## TASKS.md
-
-Record the approved `tasks`/`tsk` command behavior:
-
-- relevant task sessions for progress, blockers, and next steps; live git,
-  worktree, PR, CI, and deploy evidence for factual checks
-- relevant open tickets and release records for shared gates and external blockers
-- session state and next steps checked against live evidence before ranking;
-  completed actions omitted
-- session access gaps reported as unknown progress
-- actionable-only inclusion rules
-- row status labels, including `Needs behavior contract`
-- board columns
-- ranking policy
-- read-only board generation and action boundaries for cleanup, aborts, and
-  thread archiving
-
-`TASKS.md` is command policy, not a backlog. Do not store every task there.
 
 ## GLOSSARY.md
 
@@ -193,14 +173,13 @@ Write policy:
 
 ## Documentation Policy
 
-Use `DOCUMENTATION_POLICY.md` to prevent duplicated truth:
+Use `DOCUMENTATION_POLICY.md` to prevent duplicated truth. The `AGENTS.md`
+trigger table already says which doc owns each topic, so the policy records
+only placement rules the router cannot express:
 
-- glossary terms live in `GLOSSARY.md`
-- topology lives in `ORCHESTRATION.md`
-- task-board command policy lives in `TASKS.md`
-- slices, behavior contracts, and gates live in `SLICES.md`
 - runbooks live in their pattern-named docs, one canonical runbook per pattern
-- evidence-backed skill-improvement candidates live in `SKILL_FEEDBACK.md`
+- task progress lives in sessions; shared durable gates belong in their
+  existing ticket, slice, or release record
 - implementation specs, schemas, migrations, and code-level docs live in the
   relevant implementation repo
 
