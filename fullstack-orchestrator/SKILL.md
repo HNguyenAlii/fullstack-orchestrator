@@ -125,7 +125,21 @@ Scripts collect evidence and validate; they are not authority:
   when the adapter defines an install runbook — never publication, release, or
   deploy. Read the installed identity back.
 
+## Unslop review
+
+Before handing over prose, scan it for filler, vague claims, jargon, forced
+list patterns, and dense sentences. Rewrite only what needs work with plain
+words, concrete facts, and active voice where it clarifies ownership.
+Preserve the intended tone, technical meaning, and what the evidence supports.
+Apply this pass to user replies, plans, and runbook drafts. If the project
+supplies an Unslop guide, use its language rules without changing the project's
+approval or verification gates.
+
 ## Skill Improvement Loop
+
+While doing project work, look for repeatable practices worth adding to the
+runbook. Bring the owner a concrete example, a proposed rule, and the benefit
+you expect. Discuss the change and get agreement before editing the runbook.
 
 Skills never mutate themselves. When work surfaces repeated friction, a missing
 companion skill, or stale skill behavior, draft an evidence-backed candidate in
